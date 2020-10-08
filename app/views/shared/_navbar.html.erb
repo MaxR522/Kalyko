@@ -1,0 +1,26 @@
+<nav>
+  <a class="navbar-brand" href="/">Kalyko</a>
+
+  <div id="navbarSupportedContent">
+    <ul>
+      <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to 'Deconnexion', destroy_user_session_path, method: :delete, class: 'nav-link'%>
+        </li> 
+        <li>
+          <%= link_to 'Profile', '#', class: 'nav-link'%>
+        </li>
+        <li>
+          <%= link_to 'Modifier', edit_user_registration_path, class: 'nav-link'%>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Sign up', new_user_registration_path, class: 'nav-link'%>
+        </li> 
+        <li class="nav-item">
+          <%= link_to 'Login', new_user_session_path, class: 'nav-link'%>
+        </li> 
+      <% end %>
+    </ul>
+  </div>
+</nav>
