@@ -32,6 +32,13 @@ gem "table_print"
 
 gem 'devise', '~> 4.7', '>= 4.7.3'
 
+gem 'rails_admin', '~> 2.0', '>= 2.0.2'
+
+# rails_admin template
+gem 'rails_admin_rollincode', '~> 1.3'
+
+gem 'cancancan', '~> 3.1'
+
 gem 'dotenv-rails'
 
 group :development, :test do
