@@ -1,0 +1,31 @@
+
+<h1><%= @recipe.title %></h1>
+
+<%= image_tag @recipe.main_image, class: 'img' if @recipe.main_image.attached? %>
+
+<ul>
+  <li>temps de preparation: <%= @recipe.time %></li>
+  <li>nombre de personne: <%= @recipe.person_number%></li>
+</ul>
+
+<div class="row">
+  <div id="ingredients" class="col-md-4">
+    <h3>Ingredients</h3>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <li><%= ingredient.name %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div id="directions" class="col-md-8">
+    <h3>Etapes a suivre</h3>
+    <ul>
+      <% @recipe.directions.each do |direction| %>
+        <li><%= direction.steps %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<%= link_to 'retour', root_path %>

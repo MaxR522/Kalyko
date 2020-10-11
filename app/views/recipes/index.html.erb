@@ -1,0 +1,18 @@
+
+<h2>PAGE D'ACCEUIL DE KALYKO</h2>
+
+<%# <%= link_to 'new', new_recipe_path %>
+
+
+  <% @recipe.each_slice(3) do |recipes| %>
+    <div class='row'>
+      <% recipes.each do |recipe| %>
+        <div class='recipe'>
+          <%= link_to recipe do %>
+            <%= image_tag recipe.main_image, class: 'img' if recipe.main_image.attached? %>
+          <% end %>
+          <h2><%= link_to recipe.title, recipe %></h2>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
