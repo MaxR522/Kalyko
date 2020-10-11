@@ -1,0 +1,8 @@
+<%= simple_form_for @recipe do |f| %>
+  <%= f.input :title %>
+  <%= f.input :time %>
+  <%= f.input :person_number%>
+  <%= f.label :main_image %>
+  <%= f.file_field :main_image %>
+  <%= f.button :submit %>
+<% end %>
