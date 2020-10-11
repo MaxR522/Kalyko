@@ -16,6 +16,7 @@
         <li><%= ingredient.name %></li>
       <% end %>
     </ul>
+    <%= link_to 'se faire livrer les ingredients', '#', class: 'btn btn-primary'%>
   </div>
 
   <div id="directions" class="col-md-8">
@@ -25,6 +26,38 @@
         <li><%= direction.steps %></li>
       <% end %>
     </ul>
+  </div>
+
+  <div id='nutri_table'>
+    <h3>Table de valeur nutritionnel</h3>
+    <table class="table table-bordered table-sm table-responsive">
+    <caption>Valeur nutritionnel pour 100g</caption>
+    <thead class="table-dark">
+        <tr>
+          <th scope="col">Calories</th>
+          <th scope="col">Proteines</th>
+          <th scope="col">Lipides</th>
+          <th scope="col">Glucides</th>
+          <th scope="col">Sucres</th>
+          <th scope="col">Acide gras satures</th>
+          <th scope="col">Fibres</th>
+        </tr>
+      </thead>
+
+      <% @recipe.nutri_table.tap do |nutri| %>
+        <tbody>
+        <tr>
+          <th scope="row"><%= nutri.calories %></th>
+          <td><%= nutri.proteines%></td>
+          <td><%= nutri.lipides %></td>
+          <td><%= nutri.glucides%></td>
+          <td><%= nutri.sucre %></td>
+          <td><%= nutri.acide_gras_satures%></td>
+          <td><%= nutri.fibres %></td>
+        </tr>
+      </tbody>
+      <%end%>
+    </table>
   </div>
 </div>
 
