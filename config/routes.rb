@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :recipes
 
   root to: "recipes#index"
+
+  # get '/tagged', to: "recipes#tagged", as: :tagged
 end

@@ -1,14 +1,22 @@
 class Recipe < ApplicationRecord
+  # active storage
   has_one_attached :main_image
 
+  # relations
   has_many :ingredients
   has_many :directions
-  
   has_one :nutri_table
-  
-  accepts_nested_attributes_for :ingredients, reject_if: :all_blank, allow_destroy: true
- 	accepts_nested_attributes_for :directions, reject_if: :all_blank, allow_destroy: true
 
+  # acts_as_taggable gem
+  acts_as_taggable_on :tags
+
+  $tags = ['healthy', 'diabetique']
+
+  # cocoon gem
+  accepts_nested_attributes_for :ingredients, reject_if: :all_blank, allow_destroy: true
+  accepts_nested_attributes_for :directions, reject_if: :all_blank, allow_destroy: true
+   
+  # validation
   validate :acceptable_image
 
   def acceptable_image
