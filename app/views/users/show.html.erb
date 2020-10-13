@@ -1,5 +1,13 @@
 <%- # app/views/users/show.html.erb -%>
-<h1>Your account description:</h1>
+<h1>Welcome to your profile page</h1>
+
+<div>
+  <% if current_user.avatar.attached? %>
+    <%= image_tag current_user.avatar, class: 'img_profile' %>
+  <% end %>
+</div>
+
+<h3>Your account description:</h3>
 
 <ul>
   <li>Username: <%= current_user.username%> </li>
