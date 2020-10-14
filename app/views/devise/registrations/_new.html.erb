@@ -1,9 +1,6 @@
 
 
- <div class="container">
-        <div class="form-container">
-            <div class="signin-signup">
-                <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html:{class:'sign-in-form'} ) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html:{class:'sign-up-form'} ) do |f| %>
   <h2 class="title">S'inscrire</h2>
 
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -24,7 +21,9 @@
 
   <div class="input-field">
   <i class="fa fa-lock"></i>
-  
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characteres minimum)</em>
+    <% end %>
     <%= f.password_field :password, placeholder:"Mot de passe" %>
   </div>
 
@@ -43,18 +42,3 @@
  <%= render "devise/shared/links" %> 
 <%
 =end%>
-</div>
-    <div class="panels-container">
-            <div class="panel left-panel">
-                <div class="content">
-                    <h3>Ouuuupppssss</h3>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse et debitis illo eius</p>
-                    
-                </div>
-                <img src="<%Rails.public_path%>/img/ohh.svg" alt="" class="image">
-            </div>
-            </div>
-       
- </div>
-
- 
