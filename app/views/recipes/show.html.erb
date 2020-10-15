@@ -1,0 +1,65 @@
+
+<h1><%= @recipe.title %></h1>
+
+<%= image_tag @recipe.main_image, class: 'img' if @recipe.main_image.attached? %>
+
+<ul>
+  <li>temps de preparation: <%= @recipe.time %></li>
+  <li>nombre de personne: <%= @recipe.person_number%></li>
+</ul>
+
+<div class="row">
+  <div id="ingredients" class="col-md-4">
+    <h3>Ingredients</h3>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <li><%= ingredient.name %></li>
+      <% end %>
+    </ul>
+    <%= link_to 'se faire livrer les ingredients', '#', class: 'btn btn-primary'%>
+  </div>
+
+  <div id="directions" class="col-md-8">
+    <h3>Etapes a suivre</h3>
+    <ul>
+      <% @recipe.directions.each do |direction| %>
+        <li><%= direction.steps %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div id='nutri_table'>
+    <h3>Table de valeur nutritionnel</h3>
+    <table class="table table-bordered table-sm table-responsive">
+    <caption>Valeur nutritionnel pour 100g</caption>
+    <thead class="table-dark">
+        <tr>
+          <th scope="col">Calories</th>
+          <th scope="col">Proteines</th>
+          <th scope="col">Lipides</th>
+          <th scope="col">Glucides</th>
+          <th scope="col">Sucres</th>
+          <th scope="col">Acide gras satures</th>
+          <th scope="col">Fibres</th>
+        </tr>
+      </thead>
+
+      <% @recipe.nutri_table.tap do |nutri| %>
+        <tbody>
+        <tr>
+          <th scope="row"><%= nutri.calories %></th>
+          <td><%= nutri.proteines%></td>
+          <td><%= nutri.lipides %></td>
+          <td><%= nutri.glucides%></td>
+          <td><%= nutri.sucre %></td>
+          <td><%= nutri.acide_gras_satures%></td>
+          <td><%= nutri.fibres %></td>
+        </tr>
+      </tbody>
+      <%end%>
+    </table>
+  </div>
+</div>
+
+
+<%= link_to "retour", :back %>
