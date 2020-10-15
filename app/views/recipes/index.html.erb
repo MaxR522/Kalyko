@@ -90,7 +90,7 @@
         <div data-uk-sticky="offset: 100; bottom: true; media: @m;" style=" border-right: solid thin grey;">
           <h2>Categorie</h2>
         <%= simple_form_for :search, url: root_path, method: "GET" do |f| %>
-              <%= f.input :tags,  collection: $tags, as: :check_boxes %>
+              <%= f.input :tags,label:"-",collection: $tags, as: :check_boxes %>
               <%= f.submit "Search", class: "uk-button uk-button-primary" %>
               <%= link_to "Reset", root_path  %>
               <% end %>
