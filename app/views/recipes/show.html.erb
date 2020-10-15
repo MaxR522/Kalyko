@@ -1,24 +1,97 @@
 
-<h1><%= @recipe.title %></h1>
 
-<%= image_tag @recipe.main_image, class: 'img' if @recipe.main_image.attached? %>
 
-<ul>
-  <li>temps de preparation: <%= @recipe.time %></li>
-  <li>nombre de personne: <%= @recipe.person_number%></li>
-</ul>
-
-<div class="row">
-  <div id="ingredients" class="col-md-4">
-    <h3>Ingredients</h3>
-    <ul>
-      <% @recipe.ingredients.each do |ingredient| %>
-        <li><%= ingredient.name %></li>
-      <% end %>
-    </ul>
-    <%= link_to 'se faire livrer les ingredients', '#', class: 'btn btn-primary'%>
+<div class="uk-container">
+  <div data-uk-grid>
+    <div class="uk-width-1-2@s">
+      <div><%= image_tag @recipe.main_image, class: 'img-show' if @recipe.main_image.attached? %></div>
+    </div>
+    <div class="uk-width-expand@s uk-flex uk-flex-middle">
+      <div>
+        <h1><%= @recipe.title %></h1>
+        <div class="uk-margin-medium-top uk-child-width-expand uk-text-center uk-grid-divider" data-uk-grid>
+          <div>
+            <span data-uk-icon="icon: clock; ratio: 1.4"></span>
+            <h5 class="uk-text-500 uk-margin-small-top uk-margin-remove-bottom">Temps de preparations</h5>
+            <span class="uk-text-small"><%= @recipe.time %></span>
+          </div>
+          <div>
+            <span data-uk-icon="icon: users; ratio: 1.4"></span>
+            <h5 class="uk-text-500 uk-margin-small-top uk-margin-remove-bottom">Personnes</h5>
+            <span class="uk-text-small"><%= @recipe.person_number %></span>
+          </div>
+        </div>
+        <hr>
+        <div data-uk-grid>
+          <div class="uk-width-auto@s uk-text-small">
+            <p class="uk-margin-small-top uk-margin-remove-bottom">Created by <a href="#">Alex Williamns</a></p>
+            <span class="uk-text-muted">21 recipes</span>
+          </div>
+          <div class="uk-width-expand@s uk-flex uk-flex-middle uk-flex-right@s">
+            <a href="#" class="uk-icon-link" data-uk-icon="icon: plus-circle; ratio: 1.2" 
+             data-uk-tooltip="title: Save Recipe"></a>
+            <a href="#" class="uk-icon-link uk-margin-left" data-uk-icon="icon: cart; ratio: 1.2" 
+             data-uk-tooltip="title: Shopping List"></a>
+            <a href="#" class="uk-icon-link uk-margin-left" data-uk-icon="icon: print; ratio: 1.2" 
+             data-uk-tooltip="title: Print Recipe"></a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
 
+
+<!--  recipe boucle   
+<div class='recip-show'>
+  <%= image_tag @recipe.main_image, class: 'img-show' if @recipe.main_image.attached? %>
+
+  <div class='indic'>
+    <h1><%= @recipe.title %></h1>
+
+    <div class='indic-text'>
+      <div class='time'>
+        <i class="fa fa-clock-o fa-10x" style="font-size: 40px;"></i>
+        <p>temps de preparation:<br> <%= @recipe.time %></p>
+      </div>
+      <div class='pers'>
+        <i class="fa fa-users" style="font-size: 40px;"></i>
+        <p>nombre de personne:<br> <%= @recipe.person_number%></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+-->
+
+<div class="uk-section uk-section-default">
+  <div class="uk-container uk-container-small">
+    <div class="uk-grid-large" data-uk-grid>
+      <div class="uk-width-expand@m">
+        <div class="uk-article">
+          <h3>Etapes de preparations</h3>
+
+          
+            <% @recipe.directions.each_with_index do |direction, index| %>
+              <div id="step-<%=index + 1%>" class="uk-grid-small uk-margin-medium-top" data-uk-grid>
+                <div class="uk-width-auto">
+                  <a href="#" class="uk-step-icon" data-uk-icon="icon: check; ratio: 0.8" 
+                    data-uk-toggle="target: #step-1; cls: uk-step-active"></a>
+                </div>
+                <div class="uk-width-expand">
+                  <h5 class="uk-step-title uk-text-500 uk-text-uppercase uk-text-primary" data-uk-leader="fill:—"><%=index + 1%>. Etape</h5>
+                  <div class="uk-step-content"><%= direction.steps %></div>
+                </div>
+              </div>
+            <% end %>
+          
+        </div>
+      </div>
+
+
+
+<!--  Directions boucle 
   <div id="directions" class="col-md-8">
     <h3>Etapes a suivre</h3>
     <ul>
@@ -28,19 +101,102 @@
     </ul>
   </div>
 
-  <div id='nutri_table'>
-    <h3>Table de valeur nutritionnel</h3>
-    <table class="table table-bordered table-sm table-responsive">
-    <caption>Valeur nutritionnel pour 100g</caption>
-    <thead class="table-dark">
+  -->
+
+  <div class="uk-width-1-3@m">
+        <h3>Ingredients</h3>
+        <ul class="uk-list uk-list-large uk-list-divider uk-margin-medium-top">
+          <% @recipe.ingredients.each do |ingredient| %>
+            <li><%= ingredient.name %></li>
+          <% end %>
+        </ul>
+        
+        <h3 class="uk-margin-large-top">Share Recipe</h3>
+        <div class="uk-margin-medium-top">
+          <div data-uk-grid class="uk-child-width-auto uk-grid-small">
+            <div>
+              <a href="#" data-uk-icon="icon: facebook; ratio: 0.9" class="uk-icon-button facebook" target="_blank"></a>
+            </div>
+            <div>
+              <a href="#" data-uk-icon="icon: linkedin; ratio: 0.9" class="uk-icon-button linkedin" target="_blank"></a>
+            </div>
+            <div>
+              <a href="#" data-uk-icon="icon: twitter; ratio: 0.9" class="uk-icon-button twitter" target="_blank"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!--  Ingredients boucle 
+<div class="row">
+  <div id="ingredients" class="col-md-4">
+    <h3>Ingredients</h3>
+    <ul>
+      <% @recipe.ingredients.each do |ingredient| %>
+        <li><%= ingredient.name %></li>
+      <% end %>
+    </ul>
+    <%# <%= link_to 'se faire livrer les ingredients', '#', class: 'btn btn-primary'%>
+  </div>
+
+  -->
+
+  <!-- 
+
+<div class="containe">
+  <h2>Table de valeur nutritionnel <small>Valeur nutritionnel pour 100g</small></h2>
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">Calories</div>
+      <div class="col col-2">Proteines</div>
+      <div class="col col-3">Lipides</div>
+      <div class="col col-4">Glucides</div>
+      <div class="col col-4">Sucres</div>
+      <div class="col col-4">Acide gras satures</div>
+      <div class="col col-4">Fibres</div>
+    </li>
+    <% @recipe.nutri_table.tap do |nutri| %>
+      <li class="table-row">
+        <div class="col col-3" data-label="Amount"><%= nutri.calories%></div>
+      </li>
+        <li class="table-row">
+        <div class="col col-3" data-label="Amount"><%= nutri.proteines%></div>
+      </li>
+      <li class="table-row">
+        <div class="col col-3" data-label="Amount"><%= nutri.lipides%></div>
+      </li>
+      <li class="table-row">
+        <div class="col col-3" data-label="Amount"><%= nutri.glucides%></div>
+      </li>
+      <li class="table-row">
+        <div class="col col-3" data-label="Amount"><%= nutri.sucre%></div>
+      </li>
+      <li class="table-row">
+        <div class="col col-3" data-label="Amount"><%= nutri.acide_gras_satures%></div>
+      </li>
+      <li class="table-row">
+        <div class="col col-3" data-label="Amount"><%= nutri.fibres%></div>
+      </li>
+    <%end%>
+
+    -->
+    
+<!--  Nutritable -->
+  <div id='nutri_table' style='text-align: center;'>
+    <h3>Table de valeur nutritionnel <span>pour 100g</span></h3>
+    <table class="table table-responsive" style='width: 60%; margin: 0 auto; padding: 0 0 25px 0;'> 
+    <thead class="thead-light">
         <tr>
-          <th scope="col">Calories</th>
-          <th scope="col">Proteines</th>
-          <th scope="col">Lipides</th>
-          <th scope="col">Glucides</th>
-          <th scope="col">Sucres</th>
-          <th scope="col">Acide gras satures</th>
-          <th scope="col">Fibres</th>
+          <td scope="col">Calories</td>
+          <td scope="col">Proteines</td>
+          <td scope="col">Lipides</td>
+          <td scope="col">Glucides</td>
+          <td scope="col">Sucres</td>
+          <td scope="col">Acide gras satures</td>
+          <td scope="col">Fibres</td>
         </tr>
       </thead>
 
@@ -62,4 +218,4 @@
 </div>
 
 
-<%= link_to "retour", :back %>
+<%= link_to "retour", :back, class: 'btn' %>

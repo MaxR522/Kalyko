@@ -4,11 +4,9 @@
   <h2 class="title">S'inscrire</h2>
 
   <%= render "devise/shared/error_messages", resource: resource %>
-   <%
-=begin%>
+ 
  <%= f.file_field :avatar, id:"file-input" %> 
-<%
-=end%>
+
   <div class="input-field">
     <i class="fa fa-user"></i>
     <%= f.text_field :username, autofocus: true, placeholder:"Nom d'utilisateur"  %>
