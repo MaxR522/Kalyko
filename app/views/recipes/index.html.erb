@@ -30,12 +30,49 @@
   <%= link_to "Reset", root_path  %>
 <% end %>
 
+    
+          <%# <% @recipe.each_slice(3) do |recipes| %>
+          <div class="uk-child-width-1-2 uk-child-width-1-3@s uk-grid" data-uk-grid=''>
+            <% @recipe.each do |recipe| %>
+
+      <div>
+        <div class="uk-card">
+          
+            
+              <div class="uk-card-media-top uk-inline uk-light">
+                <%= link_to recipe do %>
+                  <%= image_tag recipe.main_image, class: 'uk-border-rounded-medium', style: 'width: 200px; height: 200px;' if recipe.main_image.attached? %>
+                
+                <div class="uk-position-cover uk-card-overlay uk-border-rounded-medium"></div>
+                <div class="uk-position-xsmall uk-position-top-right">
+                  <a href="#" class="uk-icon-button uk-like uk-position-z-index uk-position-relative"
+                    data-uk-icon="heart"></a>
+                </div>
+              </div>
+              <div>
+                <h3 class="uk-card-title uk-text-500 uk-margin-small-bottom uk-margin-top"><%= link_to recipe.title, recipe %></h3>
+                <% end %>
+                <div class="uk-text-xsmall uk-text-muted" data-uk-grid>
+                  <div class="uk-width-auto uk-flex uk-flex-middle">
+                    <span class="uk-rating-filled" data-uk-icon="icon: star; ratio: 0.7"></span>
+                    <span class="uk-margin-xsmall-left">5.0</span>
+                    <span>(73)</span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            </div>
+            <%# <% end %> %>
+      </div>
+    </div>
+          
+
   <% @recipe.each_slice(3) do |recipes| %>
     <div class='row'>
       <% recipes.each do |recipe| %>
         <div class='recipe'>
           <%= link_to recipe do %>
-            <%= image_tag recipe.main_image, class: 'img' if recipe.main_image.attached? %>
+            <%= image_tag recipe.main_image, class: 'img', style: 'width: 200px; height: 200px;' if recipe.main_image.attached? %>
           <% end %>
           <h2><%= link_to recipe.title, recipe %></h2>
         </div>
