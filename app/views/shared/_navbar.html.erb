@@ -1,29 +1,40 @@
 <!--Navbar -->
-<nav class="">
-  <a class="navbar-brand" href="/">Kalyko</a>
-  <% if user_signed_in? %>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active ml-auto">
-        <%= link_to 'Profile', "/users/:id", class: '' %>
-      </li>
-      <li class="nav-item active ml-auto">
-        <%= button_to 'Deconnexion', destroy_user_session_path, method: :delete, class: 'btn'%>
-      </li>
-    </ul>
+
+<nav class="uk-navbar-container uk-letter-spacing-small">
+  <div class="uk-container">
+    <div class="uk-position-z-index" data-uk-navbar>
+
+       <div class="uk-navbar-left">
+            <a class="uk-navbar-item uk-logo" href="/">  <img src="<% Rails.public_path%>/img/final.svg" width="100px"/> </a>
+            <ul class="uk-navbar-nav uk-visible@m uk-margin-large-left">
+              <li class="uk-active"><a href="index.html">aceuil</a></li>
+              <li ><a href="recipe.html">Recipe</a></li>
+              <li ><a href="search.html">Search</a></li>
+              <li ><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+      <div class="uk-navbar-right">
+            <div>
+                 <% if user_signed_in? %>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul style="list-style:none;">
+              <li class="nav-item active ml-auto"style="float:left;">
+                <%= link_to 'Profile', "/users/:id", class: 'uk-button uk-button-primary' %>
+                
+              </li>
+              <li class="nav-item active ml-auto "style="float:left;">
+                <%= button_to 'Deconnexion', destroy_user_session_path, method: :delete, class: 'uk-button uk-button-primary'%>
+              </li>
+            </ul>
+          </div>
+          <% end %>
+                
+             </div>
+      </div>
+     </div>
+
   </div>
-  <% else %>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item active">
-        <%= link_to 'Login', new_user_session_path, class: 'btn btn-outline-dark'%>
-      </li>
-      <li class="nav-item active">
-        <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-outline-primary'%>
-      </li>
-    </ul>
-  </div>
-  <% end %>
 </nav>
 <!--/.Navbar -->
 
