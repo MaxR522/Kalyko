@@ -59,7 +59,7 @@
 }
 
 body {
-  background: #1f253d;
+  background: #fff;
 }
 
 ul {
@@ -377,10 +377,7 @@ h1, h2, p, a, span{
         .donut-chart {
           height: 270px;
         }
-        /******************************************
-        DONUT-CHART by @kseso https://codepen.io/Kseso/pen/phiyL
-        ******************************************/
-          .donut-chart {
+                  .donut-chart {
             position: relative;
             width: 200px;
             height: 200px;
@@ -456,9 +453,7 @@ h1, h2, p, a, span{
               -webkit-transform: rotate(32deg);
               transform: rotate(32deg);
             }
-        /******************************************
-        END DONUT-CHART by @kseso https://codepen.io/Kseso/pen/phiyL
-        ******************************************/
+     
         .os-percentages {
           padding-top: 36px;
         }
@@ -497,9 +492,7 @@ h1, h2, p, a, span{
           height: 200px;
           background: #11a8ab;
         }
-        /******************************************
-        LINE-CHART by @kseso https://codepen.io/Kseso/pen/phiyL
-        ******************************************/
+  
         .grafico {
           padding: 2rem 1rem 1rem;
           width: 100%;
@@ -580,9 +573,7 @@ h1, h2, p, a, span{
           float: left;
           text-align: center;
         }
-        /******************************************
-        END LINE-CHART by @kseso https://codepen.io/Kseso/pen/phiyL
-        ******************************************/
+
         .time-lenght {
           padding-top: 22px;
           padding-left: 38px;
@@ -747,7 +738,7 @@ h1, h2, p, a, span{
           padding-top: 23px;
         }
           .profile-options li {
-            border-left: 1px solid #1f253d;
+            border-left: 1px solid #2a9d8f;
           }
             .profile-options p {
               margin: 0;
@@ -854,7 +845,7 @@ h1, h2, p, a, span{
           }
         .tweet.first {
           height: 150px;
-          border-bottom: 1px solid #1f253d;
+          border-bottom: 1px solid #2a9d8f;
         }
           .tweet p:first-child {
             margin: 0;
@@ -869,7 +860,7 @@ h1, h2, p, a, span{
           }
       .middle-container .social {
         height: 205px;
-        background: #1f253d;
+        background: #2a9d8f;
       }
         .middle-container .social li {
           margin-bottom: 12px;
